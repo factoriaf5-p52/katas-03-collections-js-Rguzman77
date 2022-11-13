@@ -44,9 +44,10 @@ describe("Colecciones en JS: Array", () => {
     it("Nos permiten modificar cada elemento", () => {
 
         let fruits = ["Piña", "Manzana", "Fresa", "Melón"]
-
-        // Añade el código que permite modificar el elemento correspondiente
         
+        // Añade el código que permite modificar el elemento correspondiente
+         
+        fruits[1]="Pera";
         expect(fruits).to.have.same.members(["Piña", "Pera", "Fresa", "Melón"])
     })
 
@@ -54,7 +55,7 @@ describe("Colecciones en JS: Array", () => {
         let fruits = ["Piña", "Manzana", "Fresa", "Melón"]
 
         // Añade el código que permite modificar la lista (incluyendo un elemento al final)
-
+        fruits[4]= "Pera"
         expect(fruits).to.have.same.members(["Piña", "Manzana", "Fresa", "Melón", "Pera"])
     })
 })
@@ -151,7 +152,11 @@ describe("Operaciones iterables", () => {
         let list = [1,5,7,9,11,13];
 
         // utiliza la función map para aplicar los números de la lista
-        list = "???";
+        function restar1(num) {
+            return num -1 ;
+        }
+
+        list = list.map(restar1);
         
 
         expect(list).to.have.same.members([0,4,6,8,10,12]);
@@ -162,7 +167,8 @@ describe("Operaciones iterables", () => {
         let list = ["Pikachu", "Charmander", "Magikarp"];
 
         // utiliza la función map para aplicar los números de la lista y guardar la nueva lista en result
-                
+        
+        let result = list.map(list => list + ", te elijo a ti!");
         expect(result).to.have.same.members([
             "Pikachu, te elijo a ti!",
             "Charmander, te elijo a ti!",
@@ -175,7 +181,7 @@ describe("Operaciones iterables", () => {
         let knownExoplanets = [ "TOI-1298 b","TOI-132 b","TOI-1333 b","TOI-1338 b","TOI-1431 b","TOI-1444 b","TOI-1478 b","TOI-150.01","TOI-157 b","TOI-1601 b","TOI-163 b","TOI-1634 b","TOI-1685 b","TOI-169 b","TOI-172 b","TOI-1728 b","TOI-1749 b","TOI-1749 c"];
 
         // utiliza la función includes para comprobar si la lista de planetas contiene el planeta TOI-1634 b
-        let result = "???";
+        let result = knownExoplanets.includes("TOI-1634 b");
         
         expect(result).to.equal(true);        
     })
@@ -187,7 +193,8 @@ describe("Operaciones iterables", () => {
         // utiliza la función filter para quedarnos con los planetas que terminan por la letra c
         // puedes utilizar la función .endsWith para comprobar si un string termina por una letra
         // p.ej. "Hola".endsWith('a') devuelve true
-        let result = "???";
+       
+        let result = knownExoplanets.filter(knownExoplanets=>knownExoplanets.endsWith("c"))
         
 
         // todos los planetas de result terminan con la letra c
